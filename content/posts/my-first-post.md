@@ -1,0 +1,7 @@
+---
+title: "My First Post"
+date: 2020-04-10T11:18:09+01:00
+draft: false
+---
+
+This website is powered by `hugo` andhosted on AWS Cloudfront, with DNS managed using AWS Route53.

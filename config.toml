@@ -1,4 +1,4 @@
-baseURL = "https://blog.drn.ie/"
+baseURL = "https://drn.ie/"
 languageCode = "en-us"
 title = "Darren Meehan"
 theme = "hello-friend-ng"

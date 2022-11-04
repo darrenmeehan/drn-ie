@@ -1,10 +1,10 @@
 # drn.ie
 
-This repository is what powers https://drn.ie
+This repository powers https://drn.ie
 
 # About
 
-The site is generated using [Hugo](https://gohugo.io/) and is currently hosted on AWS using Cloudfront.
+The site is generated using [Hugo](https://gohugo.io/) and is currently hosted on AWS Cloudfront.
 
 # TODO
 

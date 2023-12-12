@@ -4,10 +4,4 @@ This repository powers https://drn.ie
 
 # About
 
-The site is generated using [Hugo](https://gohugo.io/) and is currently hosted on AWS Cloudfront.
-
-# TODO
-
-- Add IaC for the Route53
-- Add IaC for the S3 and AWS Cloudfront configuration
-- Add GitHub actions for regenerating content on push
+The site is generated using [Zola](https://getzola.org) and is currently hosted on Cloudflare Pages.

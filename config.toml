@@ -15,4 +15,19 @@ theme = "hallo"
 highlight_code = false
 
 [extra]
-# Put all your custom variables here
+greeting = "Hello!"
+
+iam = "I am"
+
+links = [
+    { title = "E-Mail", url = "mailto:hi@drn.ie", iconset = "fas", icon = "envelope" },
+    { title = "GitHub", url = "https://github.com/darrenmeehan", icon = "github" }
+]
+
+[extra.author]
+name = "Darren Meehan"
+
+[extra.theme]
+background = "#000"
+foreground = "#FFF"
+hover = "#333"

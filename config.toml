@@ -1,6 +1,9 @@
 # The URL the site will be built for
 base_url = "https://drn.ie"
 
+title = "Darren Meehan's personal site"
+description = "Public site of Darren Meehan"
+
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
@@ -8,6 +11,10 @@ compile_sass = true
 build_search_index = false
 
 theme = "hallo"
+
+render_emoji = true
+
+paths_keep_dates = false
 
 [markdown]
 # Whether to do syntax highlighting

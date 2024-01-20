@@ -52,6 +52,8 @@
                 <img src="{{ get_url(path='images/portrait.jpg') }}" class="portrait" alt="Portrait" />
             </div>
             <div class="column right">
+                {% block content %}
+                {% endblock %}
                 <h1>{{ config.extra.greeting | default(value="Hello") }}</h1>
                 <h2>{{ config.extra.iam | default(value="I am") }} {{ config.extra.author.name | default(value="Hallo") }}.</h2>
                 <p>{{ section.content | safe }}</p>
@@ -74,15 +76,6 @@
 
                     </div>
                 {% endif %}
-
-
-                <h2>Recent Posts</h2>
-                <ul>
-                    <!-- If you are using pagination, section.pages will be empty. You need to use the paginator object -->  
-                    {% for page in section.pages %}
-                    <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
-                    {% endfor %}
-                </ul>
 
                 <div class="display-none h-card">
                     <span style="display: none;" class="p-name">Darren Meehan</span>

@@ -41,3 +41,6 @@ name = "Darren Meehan"
 background = "#000"
 foreground = "#FFF"
 hover = "#333"
+
+[context.deploy-preview]
+command = "zola build --base-url $DEPLOY_PRIME_URL"

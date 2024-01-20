@@ -67,22 +67,12 @@
                                 {% endif %}
                             </a>
                         {% endfor %}
-                        <a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a>
                         <link rel="authorization_endpoint" href="https://indieauth.com/auth">
                         <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
                         <link rel="microsub" href="https://aperture.p3k.io/microsub/917">
 
                     </div>
                 {% endif %}
-
-
-                <h2>Recent Posts</h2>
-                <ul>
-                    <!-- If you are using pagination, section.pages will be empty. You need to use the paginator object -->  
-                    {% for page in section.pages %}
-                    <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
-                    {% endfor %}
-                </ul>
 
                 <div class="display-none h-card">
                     <span style="display: none;" class="p-name">Darren Meehan</span>

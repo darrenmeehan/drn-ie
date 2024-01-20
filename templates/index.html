@@ -9,6 +9,17 @@
         <link rel="stylesheet" href="{{ get_url(path='fonts.css') }}">
         <link rel="stylesheet" href="{{ get_url(path='fontawesome/css/fontawesome.css') }}">
         <link rel="stylesheet" href="{{ get_url(path='hallo.css') }}">
+        <script>
+            if (window.netlifyIdentity) {
+              window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                  window.netlifyIdentity.on("login", () => {
+                    document.location.href = "/admin/";
+                  });
+                }
+              });
+            }
+          </script>
 
         {% if config.extra.theme %}
             <style>

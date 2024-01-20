@@ -2,8 +2,27 @@
 
 {% block content %}
 <h1 class="title">
-  {{ page.title }}
+  {{ page.title }} - {{ config.title}}
 </h1>
 <p class="subtitle"><strong>{{ page.date }}</strong></p>
 {{ page.content | safe }}
 {% endblock content %}
+
+<div class="column left">
+  <img src="{{ get_url(path='images/portrait.jpg') }}" class="portrait" alt="Portrait of Darren Meehan" />
+</div>
+
+{% if config.extra.links %}
+<div class="links">
+    <h3>Where to find me</h3>
+    {% for link in config.extra.links %}
+        <a rel="me" href="{{ link.url }}" title="{{ link.title }}">
+            {% if link.iconset %}
+                <span class="{{ link.iconset }} {{ 'fa-' ~ link.icon }}"></span>
+            {% else %}
+                <span class="fab {{ 'fa-' ~ link.icon }}"></span>
+            {% endif %}
+        </a>
+    {% endfor %}
+</div>
+{% endif %}

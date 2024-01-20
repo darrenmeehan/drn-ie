@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="{{ get_url(path='fonts.css') }}">
         <link rel="stylesheet" href="{{ get_url(path='fontawesome/css/fontawesome.css') }}">
         <link rel="stylesheet" href="{{ get_url(path='hallo.css') }}">
+        <link rel="stylesheet" href="{{ get_url(path='css/custom.css') }}">
         <script>
             if (window.netlifyIdentity) {
               window.netlifyIdentity.on("init", user => {
@@ -20,75 +21,31 @@
               });
             }
           </script>
-
-        {% if config.extra.theme %}
-            <style>
-                body {
-                    color: {{ config.extra.theme.foreground }} !important;
-                    background-color: {{ config.extra.theme.background }} !important;
-                }
-
-                a {
-                    color: {{ config.extra.theme.foreground }} !important;
-                }
-
-                a:hover {
-                    color: {{ config.extra.theme.hover }} !important;
-                }
-
-
-                    border: 10px solid {{ config.extra.theme.foreground }} !important;
-                }
-                .display-none * {
-                    display: none !important;
-                }
-
-            </style>
-        {% endif %}
     </head>
     <body>
         <main>
             <div class="column left">
-                <img src="{{ get_url(path='images/portrait.jpg') }}" class="portrait" alt="Portrait" />
-            </div>
-            <div class="column right">
                 {% block content %}
                 {% endblock %}
-
-                {% if config.extra.links %}
-                    <div class="links">
-                        <h3>Where to find me</h3>
-                        {% for link in config.extra.links %}
-                            <a rel="me" href="{{ link.url }}" title="{{ link.title }}">
-                                {% if link.iconset %}
-                                    <span class="{{ link.iconset }} {{ 'fa-' ~ link.icon }}"></span>
-                                {% else %}
-                                    <span class="fab {{ 'fa-' ~ link.icon }}"></span>
-                                {% endif %}
-                            </a>
-                        {% endfor %}
-                        <link rel="authorization_endpoint" href="https://indieauth.com/auth">
-                        <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
-                        <link rel="microsub" href="https://aperture.p3k.io/microsub/917">
-
-                    </div>
-                {% endif %}
-
-                <div class="display-none h-card">
-                    <span style="display: none;" class="p-name">Darren Meehan</span>
-                    <span style="display: none;" class="p-honorific-prefix">Mr.</span>
-                    <span style="display: none;" class="p-given-name">Darren</span>
-                    <span style="display: none;" class="p-family-name">Meehan</span>
-                    <img style="display: none;" class="u-photo" src="{{ get_url(path="images/portrait.jpg") }}"/>
-                    <a style="display: none;" class="u-url" href="https://drn.ie">w</a>
-                    <a style="display: none;" class="u-email" href="mailto:hi@drn.ie">e</a>
-                    <div style="display: none;" class="p-country-name">Ireland</div>
-                    <div style="display: none;" class="p-category">Software Engineer</div>
-                    <div style="display: none;" class="p-note">Honeymooning.</div>
-                    <div style="display: none;" class="p-gender-identity">Male</div>
-                    <div style="display: none;" class="p-sex">Male</div>
-                </div>
             </div>
+            <div class="column right">
+                <img src="{{ get_url(path='images/portrait.jpg') }}" class="portrait" alt="Portrait" />
+                {% if config.extra.links %}
+                <div class="links">
+                    <h3>Where to find me</h3>
+                    {% for link in config.extra.links %}
+                        <a rel="me" href="{{ link.url }}" title="{{ link.title }}">
+                            {% if link.iconset %}
+                                <span class="{{ link.iconset }} {{ 'fa-' ~ link.icon }}"></span>
+                            {% else %}
+                                <span class="fab {{ 'fa-' ~ link.icon }}"></span>
+                            {% endif %}
+                        </a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+              </div>
+
         </main>
     </body>
 </html>

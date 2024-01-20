@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="{{ get_url(path='fonts.css') }}">
         <link rel="stylesheet" href="{{ get_url(path='fontawesome/css/fontawesome.css') }}">
         <link rel="stylesheet" href="{{ get_url(path='hallo.css') }}">
+        <link rel="stylesheet" href="{{ get_url(path='css/custom.css') }}">
         <script>
             if (window.netlifyIdentity) {
               window.netlifyIdentity.on("init", user => {
@@ -20,31 +21,6 @@
               });
             }
           </script>
-
-        {% if config.extra.theme %}
-            <style>
-                body {
-                    color: {{ config.extra.theme.foreground }} !important;
-                    background-color: {{ config.extra.theme.background }} !important;
-                }
-
-                a {
-                    color: {{ config.extra.theme.foreground }} !important;
-                }
-
-                a:hover {
-                    color: {{ config.extra.theme.hover }} !important;
-                }
-
-
-                    border: 10px solid {{ config.extra.theme.foreground }} !important;
-                }
-                .display-none * {
-                    display: none !important;
-                }
-
-            </style>
-        {% endif %}
     </head>
     <body>
         <main>

@@ -5,3 +5,14 @@ $color-hover: #CCC;
 @import 'hallo/variables';
 @import 'hallo/base';
 @import 'hallo/layout';
+
+
+.title-blog-post {
+    float: right;
+    size: 2rem;
+}
+
+.content-blog-post {
+    float: left;
+    text-align: left;
+}

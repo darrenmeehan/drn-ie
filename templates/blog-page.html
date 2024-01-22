@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="title">
+<h1 class="title-blog-post">
   {{ page.title }} - {{ config.title}}
 </h1>
-<p class="subtitle"><strong>{{ page.date }}</strong></p>
-{{ page.content | safe }}
+<p class="subtitle-blog-post"><strong>{{ page.date }}</strong></p>
+<div class="content-blog-post">
+    {{ page.content | safe }}
+</div>
 {% endblock content %}
 
 <div class="column left">

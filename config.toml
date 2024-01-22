@@ -24,7 +24,7 @@ highlight_code = false
 [extra]
 greeting = "Hello!"
 
-iam = "I am"
+iam = "My name is"
 
 links = [
     { title = "E-Mail", url = "mailto:hi@drn.ie", iconset = "fas", icon = "envelope" },

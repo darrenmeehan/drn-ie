@@ -10,10 +10,21 @@ $color-hover: #CCC;
 .title-blog-post {
     float: left;
     text-align: left;
-    size: 1.5rem;
+    size: 1.2rem;
+}
+
+.subtitle-blog-post {
+    float: left;
+    text-align: left;
+    size: 1rem;
+    font-style: italic;
 }
 
 .content-blog-post {
     float: left;
     text-align: left;
+}
+
+.portrait-blog-post {
+    margin-top: 1.2rem;
 }

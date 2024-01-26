@@ -49,7 +49,6 @@ collections:
       - {label: "Current", name: "current", widget: "string"}
       - {label: "Dive Type", name: "dive_type", widget: "string"}
       - {label: "Dive Centre", name: "dive_centre", widget: "string"}
-      - {label: "Dive Centre Website", name: "dive_centre_website", widget: "string"
-, required: false}
+      - {label: "Dive Centre Website", name: "dive_centre_website", widget: "string", required: false}
       
 

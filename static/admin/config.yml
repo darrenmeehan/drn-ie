@@ -42,9 +42,10 @@ collections:
       - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Dive Site", name: "site", widget: "string" }
+      - {label: "Fish", name: "fish", widget: "list",
       - {label: "Location", name: "location", widget: "map" }
       - {label: "Depth", name: "depth", hint: "In metres", widget: "number", value_type: "float", min: 0, max: 40, default: 10}
-      - {label: "Duration", name: "duration", widget: "string"}
+      - {label: "Duration", name: "duration", hint: "In minutes", widget: "number", value_type: "int", min: 0, max: 120, default: 30}
       - {label: "Visibility", name: "visibility", hint: "In metres", widget: "number", value_type: "int", min: 0, max: 100, default: 10}
       - {label: "Current", name: "current", widget: "string"}
       - {label: "Dive Type", name: "dive_type", widget: "string"}

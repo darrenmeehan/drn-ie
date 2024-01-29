@@ -7,43 +7,32 @@
     {{ page.content | safe }}
 </div>
 
-<div class="dive-site">
-    <h3>Dive Site</h3>
-    <p>{{ page.extra.site }}</p>
-    <h2>Location</h2>
-    <p>{{ page.extra.location }}</p>
-    <div id='map' style='width: 300px; height: 300px;'></div>
-</div>
 <script>
 	mapboxgl.accessToken = 'pk.eyJ1IjoiZHJubWVlaGFuIiwiYSI6ImNscnlvaWJycDFqd20yaW82NGp0aHhpcjYifQ.3l9s3Mp0beBrQLWdtkv00w';
     const map = new mapboxgl.Map({
         container: 'map',
-        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
         style: 'mapbox://styles/mapbox/dark-v11',
-        center: [{{ page.extra.location["coordinates"] }}],
+        center: [99.8138283, 10.1134533],
         zoom: 8
     });
-    const marker2 = new mapboxgl.Marker({ color: 'blue'})
-    .setLngLat({{ page.extra.location["coordinates"] }})
+    const marker = new mapboxgl.Marker({ color: 'blue'})
+    .setLngLat(99.8138283, 10.1134533)
     .addTo(map);
 </script>
 
-<div class="dive-depth">
-    <h2>Depth</h2>
-    <p>{{ page.extra.depth }} metres</p>
-</div>
-<div class="dive-visibility">
-    <h2>Visibility</h2>
-    <p>{{ page.extra.visibility }} metres</p>
-</div>
-<div class="dive-duration">
-    <h2>Duration</h2>
-    <p>{{ page.extra.duration }} minutes</p>
+<div class="dive-summary">
+<h2>Summary</h2>
+<p>🏝️ We dove at {{ page.extra.site }}</p>
+<p>👀 We could see for about {{ page.extra.visibility }} metres</p>
+<p>⏱️ We were below the surface for {{ page.extra.duration }} minutes</p>
+<p>📐 We swam at a max depth of {{ page.extra.depth }} metres</p>
 </div>
 <div class="dive-shop">
     <h2>Dive Centre</h2>
     <a href="{{ page.extra.dive_centre_website }}" title="{{ page.extra.dive_centre }}">{{ page.extra.dive_centre }}</a>
 </div>
+
+<div id="map" style="width: 100%; height: 400px;"></div>
 {% endblock content %}
 
 <div class="column left portrait-blog-post">

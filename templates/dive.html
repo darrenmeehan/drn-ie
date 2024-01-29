@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title-blog-post">{{ page.title }}</h1>
+<p class="subtitle-blog-post"><strong>{{ page.date }}</strong></p>
+<div class="content-blog-post">
+    {{ page.content | safe }}
+</div>
+
+<div class="dive-site">
+    <h3>Dive Site</h3>
+    <p>{{ page.extra.site }}</p>
+</div>
+<div class="dive-location">
+    <h2>Location</h2>
+    <p>{{ page.extra.location }}</p>
+</div>
+<div class="dive-depth">
+    <h2>Depth</h2>
+    <p>{{ page.extra.depth }} metres</p>
+</div>
+<div class="dive-visibility">
+    <h2>Visibility</h2>
+    <p>{{ page.extra.visibility }} metres</p>
+</div>
+<div class="dive-duration">
+    <h2>Duration</h2>
+    <p>{{ page.extra.duration }} minutes</p>
+</div>
+<div class="dive-shop">
+    <h2>Dive Centre</h2>
+    <a href="{{ page.extra.dive_centre_website }}" title="{{ page.extra.dive_centre }}">{{ page.extra.dive_centre }}</a>
+</div>
+{% endblock content %}
+
+<div class="column left portrait-blog-post">
+  <img src="{{ get_url(path='images/portrait.jpg') }}" class="portrait" alt="Portrait of Darren Meehan" />
+</div>
+
+{% if config.extra.links %}
+<div class="links">
+    <h3>Where to find me</h3>
+    {% for link in config.extra.links %}
+        <a rel="me" href="{{ link.url }}" title="{{ link.title }}">
+            {% if link.iconset %}
+                <span class="{{ link.iconset }} {{ 'fa-' ~ link.icon }}"></span>
+            {% else %}
+                <span class="fab {{ 'fa-' ~ link.icon }}"></span>
+            {% endif %}
+        </a>
+    {% endfor %}
+</div>
+{% endif %}

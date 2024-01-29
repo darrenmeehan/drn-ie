@@ -12,7 +12,7 @@
     <p>{{ page.extra.site }}</p>
     <h2>Location</h2>
     <p>{{ page.extra.location }}</p>
-    <div id='map' style='width: 400px; height: 400px;'></div>
+    <div id='map' style='width: 300px; height: 300px;'></div>
 </div>
 <script>
 	mapboxgl.accessToken = 'pk.eyJ1IjoiZHJubWVlaGFuIiwiYSI6ImNscnlvaWJycDFqd20yaW82NGp0aHhpcjYifQ.3l9s3Mp0beBrQLWdtkv00w';
@@ -20,16 +20,11 @@
         container: 'map',
         // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
         style: 'mapbox://styles/mapbox/dark-v11',
-        center: [12.550343, 55.665957],
+        center: [{{ page.extra.location["coordinates"] }}],
         zoom: 8
     });
-    // Create a default Marker and add it to the map.
-    const marker1 = new mapboxgl.Marker()
-    .setLngLat([12.554729, 55.70651])
-    .addTo(map);
-    // Create a default Marker, colored black, rotated 45 degrees.
-    const marker2 = new mapboxgl.Marker({ color: 'black', rotation: 45 })
-    .setLngLat([12.65147, 55.608166])
+    const marker2 = new mapboxgl.Marker({ color: 'blue'})
+    .setLngLat({{ page.extra.location["coordinates"] }})
     .addTo(map);
 </script>
 

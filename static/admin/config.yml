@@ -5,24 +5,12 @@ media_folder: "images/uploads"
 publish_mode: editorial_workflow
 site_url: https://drn.ie
 
-
 collections:
   - name: "posts" # Used in routes, e.g., /admin/collections/blog
     label: "Post" # Used in the UI
     folder: "content/posts" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
-      - {label: "Body", name: "body", widget: "markdown"}
-  - name: "pages" # Used in routes, e.g., /admin/collections/blog
-    label: "Page" # Used in the UI
-    folder: "content" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}/index" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
       - {label: "Title", name: "title", widget: "string"}
@@ -39,11 +27,11 @@ collections:
       - {label: "Layout", name: "layout", widget: "hidden", default: "dive"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Dive Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
-      - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Dive Site", name: "site", widget: "string" }
+      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false }
+      - {label: "Body", name: "body", widget: "markdown" }
       - {label: "Fish", name: "fish", widget: "list" }
-      - {label: "Location", name: "location", widget: "map" }
+      - {label: "Location", name: "location", widget: "map", required: false }
       - {label: "Depth", name: "depth", hint: "In metres", widget: "number", value_type: "float", min: 0, max: 40, default: 10}
       - {label: "Duration", name: "duration", hint: "In minutes", widget: "number", value_type: "int", min: 0, max: 120, default: 30}
       - {label: "Visibility", name: "visibility", hint: "In metres", widget: "number", value_type: "int", min: 0, max: 100, default: 10}

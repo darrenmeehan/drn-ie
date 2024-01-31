@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1 class="title-blog-post">{{ page.title }}</h1>
-<p class="subtitle-blog-post"><strong>{{ page.date }}</strong></p>
+<p class="subtitle-blog-post"><strong>{{ page.date | date(format="%A %Y-%m-%d") }}</strong></p>
 <div class="content-blog-post">
     {{ page.content | safe }}
 </div>

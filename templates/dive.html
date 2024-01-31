@@ -1,26 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="title-blog-post">{{ page.title }}</h1>
-<p class="subtitle-blog-post">{{ page.date | date(format="%A %Y-%m-%d") }}</p>
-<br />
-<div class="content-blog-post">
-    <h3>Notes</h3>
-    <p>{{ page.content | safe }}</p>
-</div>
+<h1 class="title-blog-post">🤿 {{ page.title }}</h1>
 
 <div class="dive-summary">
-<h3>Summary</h3>
+<p>🧑‍🤝‍🧑 Sinéad was my dive buddy</p>
+<p>📅 We dove on {{ page.date | date(format="%A %Y-%m-%d") }}</p>
 <p>🏝️ We dove at {{ page.extra.site }}</p>
 <p>👀 We could see for about {{ page.extra.visibility }} metres</p>
 <p>⏱️ We were below the surface for {{ page.extra.duration }} minutes</p>
 <p>📐 We swam at a max depth of {{ page.extra.depth }} metres</p>
-</div>
+<p>🛒 We dove with <a href="{{ page.extra.dive_centre_website }}" title="{{ page.extra.dive_centre }}">{{ page.extra.dive_centre }}</a></p>
 
-<div class="dive-shop">
-    <h3>Dive Centre</h3>
-    <a href="{{ page.extra.dive_centre_website }}" title="{{ page.extra.dive_centre }}">{{ page.extra.dive_centre }}</a>
+<h3>Notes</h3>
+<p>{{ page.content | safe }}</p>
 </div>
+<a href="{{ page.extra.dive_centre_website }}" title="{{ page.extra.dive_centre }}">{{ page.extra.dive_centre }}</a>
 
 <div id="map" style="width: 100%; height: 400px;"></div>
 

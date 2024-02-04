@@ -5,8 +5,13 @@
 <p class="subtitle-blog-post">📅 {{ page.date | date(format="%A %Y-%m-%d") }}</p>
 <div class="content-blog-post">
     {% if page.extra.thumbnail %}
-    {% set thumbnail_url = get_url(path=page.extra.thumbnail) | replace(from='/static', to='') %}
-    <img src="{{ thumbnail_url }}" /> 
+    {% set thumbnail_path = page.extra.thumbnail | replace(from='/static', to='') %}
+    {% set image = resize_image(path=thumbnail_path, width=300, height=200, op="fit") %}
+
+    <a href="{{ get_url(path=thumbnail_path) }}" target="_blank">
+        <img src="{{ image.url }}" />
+      </a>
+
     {% endif %}
     {{ page.content | safe }}
 </div>

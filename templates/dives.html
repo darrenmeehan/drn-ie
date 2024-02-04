@@ -8,7 +8,7 @@
 
 {% for post in section.pages %}
  <p>{{ post.date }} <a href="{{ post.permalink }}">{{ post.title }}</a></p>
- {{ page.extra.site }} 
+ {{ post.extra.site }} 
  <br>
 {% endfor %}
 

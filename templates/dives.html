@@ -7,30 +7,25 @@
  </h1>
 
 <table>
-    <caption>
-      Darren Meehan's Scuba Dive Logs
-    </caption>
     <thead>
       <tr>
         <th scope="col">Name</th>
-        <th scope="col">🏝️ Site</th>
-        <th scope="col">⏱️ Duration</th>
-        <th scope="col">📅 Date</th>
-        <th scope="col">👀 Visibility</th>
-        <th scope="col">⏱️ Depth</th>
-        <th scope="col">🐟 Fish ID</th>
+        <th scope="col"><abbr title="Dive Site Name">📍</abbr></th>
+        <th scope="col"><abbr ttle="Duration">⏱️</abbr></th>
+        <th scope="col"><abbr title="Dive Date">📅</abbr></th>
+        <th scope="col"><abbr title="Visibility">👀</abbr></th>
+        <th scope="col"><abbr title="Depth">⏱️</abbr></th>
       </tr>
     </thead>
     <tbody>
     {% for dive in section.pages %} 
       <tr>
-       <th scope="row">{{ dive.title }}</th>
+       <th scope="row"><a href="{{ dive.permalink }}">{{ dive.title }}</a</th>
         <td>{{ dive.extra.site }}</td>
         <td>{{ dive.extra.duration }}</td>
-        <td>{{ dive.date | date(format="%A %Y-%m-%d") }}</td>
+        <td>{{ dive.date | date(format="%Y %m") }}</td>
         <td>{{ dive.extra.visibility }}</td>
         <td>{{ dive.extra.depth }}</td>
-        <td>Not added yet</td>
       </tr>
     {% endfor %}
     </tbody>

@@ -28,24 +28,7 @@
                 {% block content %}
                 {% endblock %}
             </div>
-            <div class="column right">
-                <img src="{{ get_url(path='images/portrait.jpg') }}" class="portrait" alt="Portrait" />
-                {% if config.extra.links %}
-                <div class="links">
-                    <h3>Where to find me</h3>
-                    {% for link in config.extra.links %}
-                        <a rel="me" href="{{ link.url }}" title="{{ link.title }}">
-                            {% if link.iconset %}
-                                <span class="{{ link.iconset }} {{ 'fa-' ~ link.icon }}"></span>
-                            {% else %}
-                                <span class="fab {{ 'fa-' ~ link.icon }}"></span>
-                            {% endif %}
-                        </a>
-                    {% endfor %}
-                </div>
-                {% endif %}
-              </div>
-
+            {%include "footer.html" %}
         </main>
     </body>
 </html>

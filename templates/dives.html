@@ -6,10 +6,48 @@
     {{ section.title }}
  </h1>
 
-{% for post in section.pages %}
- <p>{{ post.date }} <a href="{{ post.permalink }}">{{ post.title }}</a></p>
- {{ post.extra.site }} 
- <br>
+<table>
+    <caption>
+      Darren Meehan's Scuba Dive Logs
+    </caption>
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">🏝️ Site</th>
+        <th scope="col">⏱️ Duration</th>
+        <th scope="col">📅 Date</th>
+        <th scope="col">👀 Visibility</th>
+        <th scope="col">⏱️ Depth</th>
+        <th scope="col">🐟 Fish ID</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for dive in section.pages %} 
+      <tr>
+       <th scope="row">{{ dive.title }}</th>
+        <td>{{ dive.extra.site }}</td>
+        <td>{{ dive.extra.duration }}</td>
+        <td>{{ dive.date | date(format="%A %Y-%m-%d") }}</td>
+        <td>{{ dive.extra.visibility }}</td>
+        <td>{{ dive.extra.depth }}</td>
+        <td>Not added yet</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% for dive in section.pages %}
+  <div class="dive-summary">
+    <p>📅 {{ dive.date | date(format="%A %Y-%m-%d") }}</p>
+    <p>🏝️ {{ dive.extra.site }}</p>
+    <p>👀 {{ dive.extra.visibility }} metres</p>
+    <p>⏱️ {{ dive.extra.duration }} minutes</p>
+    <p>📐 {{ dive.extra.depth }} metres</p>
+    <p>🧑‍🤝‍🧑 Sinéad</p>
+    <p>🛒 <a href="{{ dive.extra.dive_centre_website }}" title="{{ dive.extra.dive_centre }}">{{ dive.extra.dive_centre }}</a></p>
+    <p><a href="{{ dive.permalink }}">{{ dive.title }}</a></p>
+</div>
+
 {% endfor %}
 
 {% endblock content %}

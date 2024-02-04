@@ -2,7 +2,7 @@
 template: blog-page.html
 title: Stay Real, BeReal
 date: 2024-02-04T10:40:21.706Z
-thumbnail: /images/uploads/screenshot_20240204-173906_bereal.~2.png
+thumbnail: /static/images/screenshot_20240204-173906_bereal.png
 ---
 Today a social media app that I enjoy quite a lot prompted me to take part in a "survey". It's not asking for my opinion, which in my mind is a survey. It's asking me to choose what brands and celebrities I would follow where they to join BeReal.
 

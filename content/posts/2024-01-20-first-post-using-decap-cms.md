@@ -2,7 +2,8 @@
 layout: blog
 title: First post using Decap CMS
 date: 2024-01-20T02:06:52.890Z
-thumbnail: /static/images/2024-01-20-08-53-24-692_original.jpeg
+extra:
+    thumbnail: /static/images/2024-01-20-08-53-24-692_original.jpeg
 ---
 Decap is a CMS that allows me to continue with static site generators, while having an easier means of writing and editing. Especially when on the move.
 

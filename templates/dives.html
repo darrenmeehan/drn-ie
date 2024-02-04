@@ -10,7 +10,7 @@
     <thead>
       <tr>
         <th scope="col">Name</th>
-        <th scope="col"><abbr title="Dive Site Name">📍</abbr></th>
+        <th scope="col"><abbr title="Dive Name">📍</abbr></th>
         <th scope="col"><abbr ttle="Duration">⏱️</abbr></th>
         <th scope="col"><abbr title="Dive Date">📅</abbr></th>
         <th scope="col"><abbr title="Visibility">👀</abbr></th>
@@ -30,6 +30,38 @@
     {% endfor %}
     </tbody>
 </table>
+
+
+<table>
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for dive in section.pages %} 
+      <tr>
+       <th scope="row"><a href="{{ dive.permalink }}">{{ dive.title }}</a</th>
+        <td><img src="https://picsum.photos/300/200" class="dive-featured-image"/></td>
+        <td>
+            <div class="dive-summary">
+                <p>📅 {{ dive.date | date(format="%A %Y-%m-%d") }}</p>
+                <p>🏝️ {{ dive.extra.site }}</p>
+                <p>👀 {{ dive.extra.visibility }} metres</p>
+                <p>⏱️ {{ dive.extra.duration }} minutes</p>
+                <p>📐 {{ dive.extra.depth }} metres</p>
+                <p>🧑‍🤝‍🧑 Sinéad</p>
+                <p>🛒 <a href="{{ dive.extra.dive_centre_website }}" title="{{ dive.extra.dive_centre }}">{{ dive.extra.dive_centre }}</a></p>
+                <p><a href="{{ dive.permalink }}">{{ dive.title }}</a></p>
+            </div>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
 
 {% for dive in section.pages %}
   <div class="dive-summary">

@@ -2,8 +2,14 @@
 
 {% block content %}
 
+<h1 class="title">
+    {{ section.title }}
+ </h1>
+
 {% for post in section.pages %}
-  <h1><a href="{{ post.permalink }}">{{ post.title }}</a></h1>
+ <p>{{ post.date }} <a href="{{ post.permalink }}">{{ post.title }}</a></p>
+ {{ page.extra.site }} 
+ <br>
 {% endfor %}
 
 {% endblock content %}

@@ -20,11 +20,11 @@
        <th scope="row">
         <a href="{{ dive.permalink }}">{{ dive.title }}</a>
         <p>📅 {{ dive.date | date(format="%Y-%m-%d") }}</p>
-        <p>🏝️ {{ dive.extra.site }}</p>
        </th>
         <td><img src="https://picsum.photos/300/200" class="dive-featured-image"/></td>
         <td>
             <div class="dive-summary">
+                <p>🏝️ {{ dive.extra.site }}</p>
                 <p>👀 {{ dive.extra.visibility }} metres</p>
                 <p>⏱️ {{ dive.extra.duration }} minutes</p>
                 <p>📐 {{ dive.extra.depth }} metres</p>

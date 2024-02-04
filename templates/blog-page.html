@@ -5,8 +5,8 @@
 <p class="subtitle-blog-post">📅 {{ page.date | date(format="%A %Y-%m-%d") }}</p>
 <div class="content-blog-post">
     {% if page.extra.thumbnail %}
-    {% set thumbnail = get_url(path=page.extra.thumbnail ) %}
-    <img src="{{ get_url(path=page.extra.thumbnail) }}" /> 
+    {% set thumbnail_url = get_url(path=page.extra.thumbnail) | replace(from='/static', to='') %}
+    <img src="{{ thumbnail_url }}" /> 
     {% endif %}
     {{ page.content | safe }}
 </div>

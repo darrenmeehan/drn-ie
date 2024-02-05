@@ -5,35 +5,4 @@ $color-hover: #CCC;
 @import 'hallo/variables';
 @import 'hallo/base';
 @import 'hallo/layout';
-
-
-.title-blog-post {
-    float: left;
-    text-align: left;
-    size: 1.0rem;
-}
-
-.subtitle-blog-post {
-    float: left;
-    text-align: left;
-    size: 1rem;
-    font-style: italic;
-}
-
-.content-blog-post {
-    float: left;
-    text-align: left;
-}
-
-.portrait-blog-post {
-    margin-top: 1.2rem;
-}
-
-.dive-summary {
-    size: 0.5rem;
-}
-
-tr {
-   margin-bottom: 10px;
-   border-bottom: 1px dashed #FFF; 
-}
+@import 'blog.scss';

@@ -1,20 +1,24 @@
 
 {% extends "base.html" %}
 
+<title>{% block title %}{{ section.title }} - {{ config.title }}{% endblock title %}</title>
+
 {% block content %}
 
-<h1 class="title">
-   {{ section.title }}
-</h1>
+<div class="posts">
 
-{% for year, posts in section.pages | group_by(attribute="year") %}
-    <h2>{{ year }}</h2>
+  <h2>{{ section.title }}</h2>
+ 
+ {% for year, posts in section.pages | group_by(attribute="year") %}
+     <h3>{{ year }}</h3>
+ 
+     <ul>
+         {% for post in posts %}
+             <li><a href="{{ post.permalink }}">{{ post.title }}</a></li>
+         {% endfor %}
+     </ul>
+  {% endfor %}
 
-    <ul>
-        {% for post in posts %}
-            <li><a href="{{ post.permalink }}">{{ post.title }}</a></li>
-        {% endfor %}
-    </ul>
-{% endfor %}
+</div>
 
 {% endblock content %}

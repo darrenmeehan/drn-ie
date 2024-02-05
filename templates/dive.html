@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+<title>{% block title %}{{ page.title }} - {{ config.title }}{% endblock title %}</title>
+
 {% block content %}
 <h1 class="title-blog-post">🤿 {{ page.title }}</h1>
 
@@ -20,7 +22,7 @@
 
 {% endblock content %}
 
-{%include "footer.html" %}
+{% include "footer.html" %}
 
 <script>
 	mapboxgl.accessToken = 'pk.eyJ1IjoiZHJubWVlaGFuIiwiYSI6ImNscnlvaWJycDFqd20yaW82NGp0aHhpcjYifQ.3l9s3Mp0beBrQLWdtkv00w';

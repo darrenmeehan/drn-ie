@@ -22,13 +22,17 @@
           </script>
     </head>
     <body>
+
+        {% block header %}
+        {% include "header.html" %}
+        {% endblock header %}
+  
         <main>
-            <div class="column left">
+            <div class="column left portrait-frame">
                 <img src="{{ get_url(path='images/portrait.jpg') }}" class="portrait" alt="Portrait" />
             </div>
             <div class="column right">
                 <h1>{{ config.extra.greeting | default(value="Hello") }}</h1>
-                <h2>{{ config.extra.iam | default(value="I am") }} {{ config.extra.author.name | default(value="Hallo") }}.</h2>
                 <p>{{ section.content | safe }}</p>
 
                 {% if config.extra.links %}

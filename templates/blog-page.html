@@ -1,20 +1,25 @@
 {% extends "base.html" %}
 
-{% block content %}
-<h1 class="title-blog-post">{{ page.title }}</h1>
-<p class="subtitle-blog-post">📅 {{ page.date | date(format="%A %Y-%m-%d") }}</p>
-<div class="content-blog-post">
-    {% if page.extra.thumbnail %}
-    {% set thumbnail_path = page.extra.thumbnail | replace(from='/static', to='') %}
-    {% set image = resize_image(path=thumbnail_path, width=300, height=200, op="fit") %}
+<title>{% block title %}{{ page.title }} - {{ config.title }}{% endblock title %}</title>
 
-    <a href="{{ get_url(path=thumbnail_path) }}" target="_blank">
+{% block content %}
+<div class="post">
+  <h2>{{ page.title }}</h2>
+  <p>📅 {{ page.date | date(format="%A %Y-%m-%d") }}</p>
+  <div class="content-blog-post">
+      {% if page.extra.thumbnail %}
+      {% set thumbnail_path = page.extra.thumbnail | replace(from='/static', to='') %}
+      {% set image = resize_image(path=thumbnail_path, width=300, height=200, op="fit") %}
+  
+      <a href="{{ get_url(path=thumbnail_path) }}" target="_blank">
         <img src="{{ image.url }}" />
       </a>
-
-    {% endif %}
-    {{ page.content | safe }}
+  
+      {% endif %}
+      {{ page.content | safe }}
+  </div>
 </div>
+
 {% endblock content %}
 
-{%include "footer.html" %}
+{% include "footer.html" %}

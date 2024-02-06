@@ -1,7 +1,7 @@
 ---
 template: dive.html
 title: Open Water Training Dive 2
-date: 2024-01-22T05:45:33.101Z
+date: 2024-01-22T14:45:33.101Z
 
 extra:
     site: White Rock, Koh Tao, Thailand

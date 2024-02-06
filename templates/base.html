@@ -12,6 +12,19 @@
         <link href="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css" rel="stylesheet">
         <script src="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js"></script>
         <script>
+          mapboxgl.accessToken = 'pk.eyJ1IjoiZHJubWVlaGFuIiwiYSI6ImNscnlvaWJycDFqd20yaW82NGp0aHhpcjYifQ.3l9s3Mp0beBrQLWdtkv00w';
+            const map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/dark-v11',
+                center: [99.8138283, 10.1134533],
+                zoom: 8
+            });
+            const marker = new mapboxgl.Marker({ color: 'blue'})
+            .setLngLat(99.8138283, 10.1134533)
+            .addTo(map);
+        </script>
+        
+        <script>
             if (window.netlifyIdentity) {
               window.netlifyIdentity.on("init", user => {
                 if (!user) {

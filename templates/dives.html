@@ -2,7 +2,8 @@
 
 {% block content %}
 
-<h2 class="title">
+<div class="dive">
+  <h2 class="title">
     {{ section.title }}
 </h2>
 
@@ -21,7 +22,7 @@
         <a href="{{ dive.permalink }}">{{ dive.title }}</a>
         <p>📅 {{ dive.date | date(format="%Y-%m-%d") }}</p>
        </th>
-        <td><img src="https://picsum.photos/300/200" class="dive-featured-image"/></td>
+        <td><img width="300" height="200" src="https://picsum.photos/300/200" class="dive-featured-image"/></td>
         <td>
             <div class="dive-summary">
                 <p>🏝️ {{ dive.extra.site }}</p>
@@ -34,6 +35,7 @@
     {% endfor %}
     </tbody>
 </table>
+</div>
 
 {% endblock content %}
 

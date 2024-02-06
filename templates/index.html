@@ -23,51 +23,55 @@
     </head>
     <body>
 
-        {% block header %}
-        {% include "header.html" %}
-        {% endblock header %}
-  
-        <main>
-            <div class="column left portrait-frame">
-                <img src="{{ get_url(path='images/portrait.jpg') }}" class="portrait" alt="Portrait" />
-            </div>
-            <div class="column right">
-                <h1>{{ config.extra.greeting | default(value="Hello") }}</h1>
-                <p>{{ section.content | safe }}</p>
+        <div class="container">
 
-                {% if config.extra.links %}
-                    <div class="links">
-                        {% for link in config.extra.links %}
-                            <a rel="me" href="{{ link.url }}" title="{{ link.title }}">
-                                {% if link.iconset %}
-                                    <span class="{{ link.iconset }} {{ 'fa-' ~ link.icon }}"></span>
-                                {% else %}
-                                    <span class="fab {{ 'fa-' ~ link.icon }}"></span>
-                                {% endif %}
-                            </a>
-                        {% endfor %}
-                        <link rel="authorization_endpoint" href="https://indieauth.com/auth">
-                        <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
-                        <link rel="microsub" href="https://aperture.p3k.io/microsub/917">
-
-                    </div>
-                {% endif %}
-
-                <div class="display-none h-card">
-                    <span style="display: none;" class="p-name">Darren Meehan</span>
-                    <span style="display: none;" class="p-honorific-prefix">Mr.</span>
-                    <span style="display: none;" class="p-given-name">Darren</span>
-                    <span style="display: none;" class="p-family-name">Meehan</span>
-                    <img style="display: none;" class="u-photo" src="{{ get_url(path="images/portrait.jpg") }}"/>
-                    <a style="display: none;" class="u-url" href="https://drn.ie">w</a>
-                    <a style="display: none;" class="u-email" href="mailto:hi@drn.ie">e</a>
-                    <div style="display: none;" class="p-country-name">Ireland</div>
-                    <div style="display: none;" class="p-category">Software Engineer</div>
-                    <div style="display: none;" class="p-note">Honeymooning.</div>
-                    <div style="display: none;" class="p-gender-identity">Male</div>
-                    <div style="display: none;" class="p-sex">Male</div>
+            {% block header %}
+            {% include "header.html" %}
+            {% endblock header %}
+      
+            <main>
+                <div class="portrait-frame">
+                    <img src="{{ get_url(path='images/portrait.jpg') }}" class="portrait" alt="Portrait" />
                 </div>
-            </div>
-        </main>
+                <div class="column right">
+                    <h1>{{ config.extra.greeting | default(value="Hello") }}</h1>
+                    <p class="home-bio">{{ section.content | safe }}</p>
+    
+                    {% if config.extra.links %}
+                        <div class="links">
+                            {% for link in config.extra.links %}
+                                <a rel="me" href="{{ link.url }}" title="{{ link.title }}">
+                                    {% if link.iconset %}
+                                        <span class="{{ link.iconset }} {{ 'fa-' ~ link.icon }}"></span>
+                                    {% else %}
+                                        <span class="fab {{ 'fa-' ~ link.icon }}"></span>
+                                    {% endif %}
+                                </a>
+                            {% endfor %}
+                            <link rel="authorization_endpoint" href="https://indieauth.com/auth">
+                            <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+                            <link rel="microsub" href="https://aperture.p3k.io/microsub/917">
+    
+                        </div>
+                    {% endif %}
+    
+                    <div class="display-none h-card">
+                        <span style="display: none;" class="p-name">Darren Meehan</span>
+                        <span style="display: none;" class="p-honorific-prefix">Mr.</span>
+                        <span style="display: none;" class="p-given-name">Darren</span>
+                        <span style="display: none;" class="p-family-name">Meehan</span>
+                        <img style="display: none;" class="u-photo" src="{{ get_url(path="images/portrait.jpg") }}"/>
+                        <a style="display: none;" class="u-url" href="https://drn.ie">w</a>
+                        <a style="display: none;" class="u-email" href="mailto:hi@drn.ie">e</a>
+                        <div style="display: none;" class="p-country-name">Ireland</div>
+                        <div style="display: none;" class="p-category">Software Engineer</div>
+                        <div style="display: none;" class="p-note">Honeymooning.</div>
+                        <div style="display: none;" class="p-gender-identity">Male</div>
+                        <div style="display: none;" class="p-sex">Male</div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
     </body>
 </html>

@@ -5,4 +5,8 @@ $color-hover: #CCC;
 @import 'hallo/variables';
 @import 'hallo/base';
 @import 'hallo/layout';
-@import 'blog.scss';
+
+.home-bio {
+    font-size: 1.3rem;
+}
+  

@@ -16,6 +16,7 @@ body {
 }
 
 a {
+    text-underline-offset: 0.25em;
     @include transition(color .2s ease-out);    
     color: $color-foreground;
 
@@ -55,4 +56,32 @@ img.portrait {
 
 .display-none * {
     display: none !important;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+  
+    li {
+      display: inline-block;
+      margin-right: 1.5rem;
+    }
+  
+    .logo {
+      font-size: 2rem;
+      margin: 0;
+  
+      a {
+        color: white;
+        text-decoration: none;
+        border-bottom: none;
+      }
+    }
 }

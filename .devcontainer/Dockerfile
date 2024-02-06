@@ -14,4 +14,5 @@ RUN echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesourc
 RUN apt update && apt-get install nodejs -y
 RUN npm install netlify-cli -g
 
+# Install just command runner
 RUN cargo install just

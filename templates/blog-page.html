@@ -5,7 +5,7 @@
 {% block content %}
 <div class="post">
   <h2>{{ page.title }}</h2>
-  <p>📅 {{ page.date | date(format="%A %Y-%m-%d") }}</p>
+  <span>📅 {{ page.date | date(format="%A %Y-%m-%d") }}</span>
   <div class="content-blog-post">
       {% if page.extra.thumbnail %}
       {% set thumbnail_path = page.extra.thumbnail | replace(from='/static', to='') %}

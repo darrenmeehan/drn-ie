@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+<title>{% block title %}{{ page.title }} - {{ config.title }}{% endblock title %}</title>
+
+{% block content %}
+<div class="post">
+  <div class="photos">
+    {% for asset in page.assets -%}
+      {%- if asset is matching("[.](jpg|png)$") -%}
+        {% set image = resize_image(path=asset, width=240, height=180) %}
+        <a href="{{ get_url(path=asset) }}" target="_blank">
+          <img src="{{ image.url }}" />
+        </a>
+      {%- endif %}
+    {%- endfor %}
+    </div>
+
+  <h2>{{ page.title }}</h2>
+  <span>📅 {{ page.date | date(format="%A %Y-%m-%d") }}</span>
+  <div class="content-blog-post">
+      {{ page.content | safe }}
+  </div>
+</div>
+
+{% endblock content %}
+
+{% include "footer.html" %}

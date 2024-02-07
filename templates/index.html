@@ -34,7 +34,7 @@
                     <img src="{{ get_url(path='images/portrait.jpg') }}" class="portrait" alt="Portrait" />
                 </div>
                 <div class="column right">
-                    <h1>{{ config.extra.greeting | default(value="Hello") }}</h1>
+                    <h1 id="welcome">{{ config.extra.greeting | default(value="Hello") }}</h1>
                     <p class="home-bio">{{ section.content | safe }}</p>
     
                     {% if config.extra.links %}
@@ -60,7 +60,7 @@
                         <span style="display: none;" class="p-honorific-prefix">Mr.</span>
                         <span style="display: none;" class="p-given-name">Darren</span>
                         <span style="display: none;" class="p-family-name">Meehan</span>
-                        <img style="display: none;" class="u-photo" src="{{ get_url(path="images/portrait.jpg") }}"/>
+                        <img style="display: none;" class="u-photo" src="{{ get_url(path='images/portrait.jpg') }}"/>
                         <a style="display: none;" class="u-url" href="https://drn.ie">w</a>
                         <a style="display: none;" class="u-email" href="mailto:hi@drn.ie">e</a>
                         <div style="display: none;" class="p-country-name">Ireland</div>
@@ -69,6 +69,11 @@
                         <div style="display: none;" class="p-gender-identity">Male</div>
                         <div style="display: none;" class="p-sex">Male</div>
                     </div>
+
+                    <script>
+                        let welcomes = ["Hello!", "Hi!", "Hey!", "Howdy!", "Welcome!", "Greetings!", "Salutations!", "Good day!", "Good morrow", "Yo!", "Sup?!", "What's up?!", "How's it going?!", "How are you?", "What's happening?", "What's new?", "What's the craic?!", "What's the story?!", "What's the craic, big lad", "What's the craic"];
+                        document.getElementById("welcome").textContent = welcomes[Math.floor(Math.random() * welcomes.length)];
+                    </script>
                 </div>
             </main>
         </div>

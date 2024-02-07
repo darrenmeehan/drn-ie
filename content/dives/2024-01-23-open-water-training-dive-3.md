@@ -1,7 +1,7 @@
 ---
 template: dive.html
 title: Open Water Training Dive 3
-date: 2024-01-23T14:45:33.101Z
+date: 2024-01-23T12:45:33.101Z
 
 extra:
     site: Twins, Koh Tao, Thailand

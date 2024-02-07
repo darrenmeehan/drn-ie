@@ -2,7 +2,7 @@
 template: dive.html
 title: Advanced Open Water - Fish ID
 date: 2024-01-25T14:45:33.101Z
-draft: true
+draft: false
 
 extra:
     site: Twins, Koh Tao, Thailand

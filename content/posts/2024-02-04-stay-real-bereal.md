@@ -2,6 +2,7 @@
 template: blog-page.html
 title: Stay Real, BeReal
 date: 2024-02-04T10:40:21.706Z
+visible: true
 extra:
     thumbnail: /static/images/screenshot_20240204-173906_bereal.png
 ---

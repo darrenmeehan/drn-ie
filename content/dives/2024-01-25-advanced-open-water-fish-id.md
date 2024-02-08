@@ -3,7 +3,7 @@ template: dive.html
 title: Advanced Open Water - Fish ID
 date: 2024-01-25T14:45:33.101Z
 draft: false
-
+visible: true
 extra:
     site: Twins, Koh Tao, Thailand
     location: '{"type":"Point","coordinates":[99.8138283,10.1134533]}'

@@ -3,6 +3,7 @@ template: dive.html
 title: Open Water Training Dive 1
 date: 2024-01-22T12:45:33.101Z
 site: Twins
+visible: true
 fish:
   - Not documented
 location: '{"type":"Point","coordinates":[99.8148059,10.1128236]}'

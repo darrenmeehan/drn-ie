@@ -39,7 +39,14 @@ collections:
       - {label: "Dive Date", name: "date", widget: "datetime"}
       - {label: "Draft", name: "draft", widget: "boolean", default: true}
       - {label: "Dive Site", name: "site", widget: "string" }
-      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false }
+      - label: "Images",
+        name: "images",
+        widget: "image",
+        allow_multiple: true,
+        required: false
+        media_library:
+          config:
+            multiple: true
       - {label: "Body", name: "body", widget: "markdown" }
       - {label: "Fish", name: "fish", widget: "list" }
       - {label: "Location", name: "location", widget: "map", required: false }

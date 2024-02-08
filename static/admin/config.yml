@@ -16,8 +16,10 @@ collections:
     folder: "content/posts" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    filter: {field: "visible", value: true}
     fields: # The fields for each document, usually in front matter
       - {label: "Template", name: "template", widget: "hidden", default: "blog-page.html"}
+      - {label: "Visible", name: "visible", widget: hidden, default: true}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Draft", name: "draft", widget: "boolean", default: false}
@@ -29,6 +31,7 @@ collections:
     folder: "content/dives"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    filter: {field: "visible", value: true}
     types:
       - label: "Dive"
         name: "dive"
@@ -36,6 +39,7 @@ collections:
         summary: "{{fields.title}}"
         fields:
           - {label: "Template", name: "template", widget: "hidden", default: "dive.html"}
+          - {label: "Visible", name: "visible", widget: hidden, default: true}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Dive Date", name: "date", widget: "datetime"}
           - {label: "Draft", name: "draft", widget: "boolean", default: true}

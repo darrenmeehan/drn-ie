@@ -4,16 +4,16 @@
 
 {% block content %}
 <div class="post">
-  <div class="photos">
-    {% for asset in page.assets -%}
-      {%- if asset is matching("[.](jpg|png)$") -%}
-        {% set image = resize_image(path=asset, width=240, height=180) %}
-        <a href="{{ get_url(path=asset) }}" target="_blank">
-          <img src="{{ image.url }}" />
-        </a>
-      {%- endif %}
+  {% if page.extra.images %}
+    {% for image in page.extra.images %}
+      <div class="background-picture">   
+        <picture>
+          <source type="image/jpeg" srcset="{{ image }}">
+          <img src="{{ image }}" width="960" height="640">
+        </picture>
+      </div> 
     {%- endfor %}
-    </div>
+  {% endif %}
 
   <h2>{{ page.title }}</h2>
   <span>📅 {{ page.date | date(format="%A %Y-%m-%d") }}</span>

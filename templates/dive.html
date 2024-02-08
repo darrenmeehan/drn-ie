@@ -7,6 +7,17 @@
 <div class="dive">
     <h2 class="title-blog-post">🤿 {{ page.title }}</h2>
 
+      {% if page.extra.images %}
+        {% for image in page.extra.images %}
+          <div class="background-picture">   
+            <picture>
+              <source type="image/jpeg" srcset="{{ image }}">
+              <img src="{{ image }}" alt="Photo of scuba diver underwater" width="960" height="640">
+            </picture>
+          </div> 
+        {%- endfor %}
+      {% endif %}
+
     <div class="dive-summary">
     <p>🧑‍🤝‍🧑 Sinéad was my dive buddy</p>
     <p>📅 We dove on {{ page.date | date(format="%A %Y-%m-%d") }}</p>
@@ -20,22 +31,8 @@
     <p>{{ page.content | safe }}</p>
     </div>
     
-    <div id="map" style="width: 400px; height: 400px;"></div>
 </div>
 
 {% endblock content %}
 
 {% include "footer.html" %}
-
-<script>
-	mapboxgl.accessToken = 'pk.eyJ1IjoiZHJubWVlaGFuIiwiYSI6ImNscnlvaWJycDFqd20yaW82NGp0aHhpcjYifQ.3l9s3Mp0beBrQLWdtkv00w';
-    const map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/dark-v11',
-        center: [99.8138283, 10.1134533],
-        zoom: 8
-    });
-    const marker = new mapboxgl.Marker({ color: 'blue'})
-    .setLngLat(99.8138283, 10.1134533)
-    .addTo(map);
-</script>

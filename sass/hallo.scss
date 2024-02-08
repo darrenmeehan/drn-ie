@@ -9,4 +9,27 @@ $color-hover: #CCC;
 .home-bio {
     font-size: 1.3rem;
 }
+
+background-picture {
+    display: grid;
+    /* create a single named grid area */
+    grid-template-areas: "bp";
+}
   
+  .background-picture > * {
+    /* assign all direct children to the single grid area */
+    grid-area: bp;
+  }
+
+  .background-picture :is(img, picture) {
+    display: block;
+  }
+  
+  .background-picture img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    /* decrease brightness to improve text contrast */
+    filter: brightness(0.65) saturate(1.25);
+    margin-bottom: 20px;
+  }

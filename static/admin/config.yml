@@ -5,6 +5,12 @@ media_folder: "static/images"
 publish_mode: editorial_workflow
 site_url: https://drn.ie
 
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: difx30h6p # This is a public value
+    api_key: 629385684364377 # This is a public key
+
 collections:
   - name: "posts" # Used in routes, e.g., /admin/collections/blog
     label: "Post" # Used in the UI

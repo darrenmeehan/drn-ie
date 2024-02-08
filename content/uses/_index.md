@@ -1,9 +1,9 @@
----
-template: blog-page.html
-title: Uses
-date: 2024-02-08T04:19:15.412Z
-visible: true
----
++++
+title = "Uses"
+template = "page.html"
+draft = true
+visible = true
++++
 
 This page documents gadgets, software, tools, and anything else I use that I think is worth sharing. I'll likely go into more detail on some aspects but I'm taking inspiration from other exams of "/uses" pages.
 

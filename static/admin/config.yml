@@ -59,6 +59,7 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Dive Date", name: "date", widget: "datetime"}
       - {label: "Draft", name: "draft", widget: "boolean", default: true}
+      - {label: "Body", name: "body", widget: "markdown"} 
       - label: "Details"
         name: "extra"
         widget: "object"
@@ -73,7 +74,6 @@ collections:
             media_library:
               config:
                 multiple: true
-          - {label: "Body", name: "body", widget: "markdown" }
           - {label: "Fish", name: "fish", widget: "list" }
           - {label: "Location", name: "location", widget: "map", required: false }
           - {label: "Depth", name: "depth", hint: "In metres", widget: "number", value_type: "float", min: 0, max: 40, default: 10}

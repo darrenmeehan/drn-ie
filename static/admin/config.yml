@@ -12,7 +12,8 @@ media_library:
 
 collections:
   - name: "posts" # Used in routes, e.g., /admin/collections/blog
-    label: "Post" # Used in the UI
+    label: "Posts" # Used in the UI
+    label_singular: "Post"
     folder: "content/posts" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
@@ -39,6 +40,7 @@ collections:
                 multiple: true
   - name: "photos"
     label: "Photos" # Used in the UI
+    label_singular: "Photo"
     folder: "content/photos" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
@@ -64,7 +66,8 @@ collections:
               config:
                 multiple: true
   - name: "dives"
-    label: "Dive"
+    label: "Dives"
+    label_singular: "Dive"
     folder: "content/dives"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"

@@ -23,8 +23,20 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Draft", name: "draft", widget: "boolean", default: false}
-      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Photos"
+        name: "extra"
+        widget: "object"
+        summary: "Single or several images to include"
+        fields:
+          - label: "Images"
+            name: "images"
+            widget: "image"
+            allow_multiple: true
+            required: true
+            media_library:
+              config:
+                multiple: true
   - name: "photos"
     label: "Photos" # Used in the UI
     folder: "content/photos" # The path to the folder where the documents are stored
@@ -36,17 +48,21 @@ collections:
       - {label: "Visible", name: "visible", widget: hidden, default: true}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Draft", name: "draft", widget: "boolean", default: false}
-      - label: "Images"
-        name: "images"
-        widget: "image"
-        allow_multiple: true
-        required: true
-        media_library:
-          config:
-            multiple: true
       - {label: "Body", name: "body", widget: "markdown"}
-
+      - {label: "Draft", name: "draft", widget: "boolean", default: false}   
+      - label: "Photos"
+        name: "extra"
+        widget: "object"
+        summary: "Single or several images to include"
+        fields:
+          - label: "Images"
+            name: "images"
+            widget: "image"
+            allow_multiple: true
+            required: true
+            media_library:
+              config:
+                multiple: true
   - name: "dives"
     label: "Dive"
     folder: "content/dives"

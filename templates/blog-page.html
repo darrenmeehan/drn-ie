@@ -7,16 +7,18 @@
   <h2>{{ page.title }}</h2>
   <span>📅 {{ page.date | date(format="%A %Y-%m-%d") }}</span>
   <div class="content-blog-post">
-      {% if page.extra.thumbnail %}
-      {% set thumbnail_path = page.extra.thumbnail | replace(from='/static', to='') %}
-      {% set image = resize_image(path=thumbnail_path, width=300, height=200, op="fit") %}
-  
-      <a href="{{ get_url(path=thumbnail_path) }}" target="_blank">
-        <img src="{{ image.url }}" />
-      </a>
-  
-      {% endif %}
       {{ page.content | safe }}
+      {% if page.extra.images %}
+      {% for image in page.extra.images %}
+        <div class="background-picture">   
+          <picture>
+            <source type="image/jpeg" srcset="{{ image }}">
+            <img src="{{ image }}" alt="Photo of scuba diver underwater" width="960" height="640">
+          </picture>
+        </div> 
+      {%- endfor %}
+    {% endif %}
+
   </div>
 </div>
 

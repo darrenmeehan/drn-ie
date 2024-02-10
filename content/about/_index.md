@@ -4,5 +4,10 @@ template = "section.html"
 +++
 
 I'm a software engineer from Donegal, Ireland.
+I’m currently traveling with my wife on our honeymoon.
 
-For information about the site, and how it's built checkout my [about site](@/about/site/_index.md) page.
+
+## Why drn.ie?
+
+It’s short, and somewhat resembles how to say “Darren” in a Donegal accent!
+For more technical information about the site, and how it's built checkout my [about site](@/about/site/_index.md) page.

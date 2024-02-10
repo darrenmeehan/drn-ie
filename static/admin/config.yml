@@ -102,3 +102,27 @@ collections:
           - {label: "Dive Type", name: "dive_type", widget: "string"}
           - {label: "Dive Centre", name: "dive_centre", widget: "string"}
           - {label: "Dive Centre Website", name: "dive_centre_website", widget: "string", required: false}
+  - label: "Pages"
+    name: "pages"
+    files:
+      - label: "Home"
+        name: "home"
+        file: "content/_index.md"
+        fields:
+          - {label: "Template", name: "template", widget: "hidden", default: "index.html"}
+          - {label: Title, name: title, widget: string}
+          - {label: Body, name: body, widget: markdown}
+      - label: "About"
+        name: "about"
+        file: "content/about/_index.md"
+        fields:
+          - {label: "Template", name: "template", widget: "hidden", default: "section.html"}
+          - {label: Title, name: title, widget: string}
+          - {label: Body, name: body, widget: markdown}
+      - label: "About Site"
+        name: "about-site"
+        file: "content/about/site/_index.md"
+        fields:
+          - {label: "Template", name: "template", widget: "hidden", default: "section.html"}
+          - {label: Title, name: title, widget: string}
+          - {label: Body, name: body, widget: markdown}

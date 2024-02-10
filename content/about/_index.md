@@ -1,6 +1,6 @@
 +++
 title = "About Me"
-template = "page.html"
+template = "section.html"
 +++
 
 I'm a software engineer from Donegal, Ireland.

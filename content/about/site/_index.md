@@ -1,6 +1,6 @@
 +++
 title = "About this site"
-template = "page.html"
+template = "section.html"
 +++
 
 Built using Zola, DecapCMS. Hosted on Netlify

@@ -128,7 +128,7 @@ collections:
           - {label: Body, name: body, widget: markdown}
       - label: "Wedding"
         name: "wedding"
-        file: "content/wedding/_index.md"
+        file: "content/wedding/index.md"
         fields:
           - {label: "Template", name: "template", widget: "hidden", default: "photo.html"}
           - {label: Title, name: title, widget: string}

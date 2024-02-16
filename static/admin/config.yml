@@ -126,3 +126,18 @@ collections:
           - {label: "Template", name: "template", widget: "hidden", default: "section.html"}
           - {label: Title, name: title, widget: string}
           - {label: Body, name: body, widget: markdown}
+      - label: "Wedding"
+        name: "wedding"
+        file: "content/wedding/_index.md"
+        fields:
+          - {label: "Template", name: "template", widget: "hidden", default: "photos.html"}
+          - {label: Title, name: title, widget: string}
+          - {label: Body, name: body, widget: markdown}
+          - label: "Images"
+            name: "images"
+            widget: "image"
+            allow_multiple: true
+            required: false
+            media_library:
+              config:
+                multiple: true

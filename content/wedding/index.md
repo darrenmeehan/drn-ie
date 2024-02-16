@@ -1,6 +1,6 @@
 ---
 title: Wedding
-images:
+extra.images:
   - https://res.cloudinary.com/difx30h6p/image/upload/v1708064758/Wedding/260823_Sinead_Darren_643-compressed_brztar.jpg
   - https://res.cloudinary.com/difx30h6p/image/upload/v1708064758/Wedding/260823_Sinead_Darren_666-compressed_r4nwju.jpg
   - https://res.cloudinary.com/difx30h6p/image/upload/v1708064757/Wedding/260823_Sinead_Darren_664b-compressed_rh91wf.jpg

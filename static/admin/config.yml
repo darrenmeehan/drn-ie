@@ -130,7 +130,7 @@ collections:
         name: "wedding"
         file: "content/wedding/_index.md"
         fields:
-          - {label: "Template", name: "template", widget: "hidden", default: "photos.html"}
+          - {label: "Template", name: "template", widget: "hidden", default: "photo.html"}
           - {label: Title, name: title, widget: string}
           - {label: Body, name: body, widget: markdown}
           - label: "Images"

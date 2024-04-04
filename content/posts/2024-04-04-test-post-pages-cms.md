@@ -1,7 +1,7 @@
 ---
 title: "Test post for Pages CMS"
 date: 2024-04-04T17:44:21.706Z
-draft: true
+draft: false
 visible: true
 ---
 

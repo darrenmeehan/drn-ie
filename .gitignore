@@ -9,3 +9,6 @@ resources/
 src/target/
 /target
 result*
+
+# Application Directories
+log/

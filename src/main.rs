@@ -1,4 +1,4 @@
-use axum::{routing::get, Router};
+use axum::{routing::{get, post}, Router};
 use tower_http::trace::{self, TraceLayer};
 use tracing::{event, span, Level};
 use tracing_appender::rolling::{RollingFileAppender, Rotation};

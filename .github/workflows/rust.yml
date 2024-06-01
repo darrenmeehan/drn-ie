@@ -1,0 +1,36 @@
+name: Rust
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    container: rustlang/rust:nightly-bookworm
+    services:
+      # Label used to access the service container
+      database:
+        # Docker Hub image 
+        image: postgres:latest
+        # Environment variables scoped only for the `postgres` element
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: scones
+        # When you map ports using the ports keyword, GitHub uses the --publish command to publish the containerâ€™s ports to the Docker host
+        # Opens tcp port 5432 on the host and service container
+        ports:
+          - 5432:5432
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: cargo build --verbose
+    - name: Run tests
+      run: cargo test --verbose

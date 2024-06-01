@@ -1,0 +1,19 @@
+name: Build Site
+on:
+    push:
+        branches:
+            - main
+env:
+    CARGO_TERM_COLOR: always
+
+jobs:
+    build:
+        name: Build content
+        runs-on: ubuntu-latest
+        container: rustlang/rust:nightly-bookworm
+        steps:
+            - uses: actions/checkout@v3
+            - name: Install zola
+              run: cargo install --git https://github.com/getzola/zola/
+            - name: Build site
+              run: zola build

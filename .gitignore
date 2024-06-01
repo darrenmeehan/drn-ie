@@ -4,3 +4,8 @@ resources/
 
 # Local Netlify folder
 .netlify
+
+# Rust outputs
+src/target/
+/target
+result*

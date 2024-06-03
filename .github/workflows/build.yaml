@@ -17,3 +17,9 @@ jobs:
               run: cargo install --git https://github.com/getzola/zola/
             - name: Build site
               run: zola build
+            - name: Archive site
+              run: tar -czvf drn-ie.tar.gz public
+            - name: Release
+              uses: softprops/action-gh-release@v2
+              with:
+                files: drn-ie.tar.gz

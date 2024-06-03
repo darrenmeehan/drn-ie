@@ -21,9 +21,9 @@ jobs:
             - name: Build site
               run: zola build
             - name: Archive site
-              run: tar -czvf drn-ie.tar.gz public
+              run: tar -czvf drn-ie-v${{ steps.date.outputs.date }}.tar.gz public
             - name: Release
               uses: softprops/action-gh-release@v2
               with:
-                files: drn-ie.tar.gz
+                files: drn-ie-v${{ steps.date.outputs.date }}.tar.gz
                 tag_name: ${{ steps.date.outputs.date }}

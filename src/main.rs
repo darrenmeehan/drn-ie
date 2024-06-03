@@ -27,8 +27,8 @@ async fn main() {
                 .make_span_with(trace::DefaultMakeSpan::new().level(Level::INFO))
                 .on_response(trace::DefaultOnResponse::new().level(Level::INFO)),
         );
-    let port = 3001;
-    let addr = SocketAddr::from(([127, 0, 0, 1], port));
+    let port = 8080;
+    let addr = SocketAddr::from(([0, 0, 0, 0], port));
     let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
 
     event!(

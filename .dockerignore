@@ -1,0 +1,8 @@
+# flyctl launch added from .gitignore
+**/public
+
+**/resources
+
+# Local Netlify folder
+**/.netlify
+fly.toml

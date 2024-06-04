@@ -16,7 +16,7 @@ primary_region = 'mad'
   processes = ['app']
 
 [build]
-  dockerfile = "Dockerfile"
+  dockerfile = 'Dockerfile'
 
 [[vm]]
   size = 'shared-cpu-1x'

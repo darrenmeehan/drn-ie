@@ -27,3 +27,7 @@ jobs:
               with:
                 files: drn-ie-v${{ steps.date.outputs.date }}.tar.gz
                 tag_name: ${{ steps.date.outputs.date }}
+            - uses: superfly/flyctl-actions/setup-flyctl@master
+            - run: flyctl deploy --remote-only
+              env:
+                FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}

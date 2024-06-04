@@ -35,7 +35,7 @@ jobs:
         uses: docker/metadata-action@f7b4ed12385588c3f9bc252f0a2b520d83b52d48
         with:
           images: |
-            my-docker-hub-namespace/my-docker-hub-repository
+            ${{ secrets.DOCKER_USERNAME }}/${{ github.repository }}
             ghcr.io/${{ github.repository }}
 
       - name: Build and push Docker images

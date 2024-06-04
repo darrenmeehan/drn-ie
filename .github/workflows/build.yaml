@@ -12,21 +12,6 @@ jobs:
         runs-on: ubuntu-latest
         container: rustlang/rust:nightly-bookworm
         steps:
-            - name: Get current date
-              id: date
-              run: echo "::set-output name=date::$(date +'%Y-%m-%d')"          
-            - uses: actions/checkout@v3
-            - name: Install zola
-              run: cargo install --git https://github.com/getzola/zola/
-            - name: Build site
-              run: zola build
-            - name: Archive site
-              run: tar -czvf drn-ie-v${{ steps.date.outputs.date }}.tar.gz public
-            - name: Release
-              uses: softprops/action-gh-release@v2
-              with:
-                files: drn-ie-v${{ steps.date.outputs.date }}.tar.gz
-                tag_name: ${{ steps.date.outputs.date }}
             - uses: superfly/flyctl-actions/setup-flyctl@master
             - run: flyctl deploy --remote-only
               env:

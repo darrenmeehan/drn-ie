@@ -21,7 +21,7 @@ async fn main() {
         .init();
 
     let app = Router::new()
-        .nest_service("/", ServeDir::new("public"))
+        .nest_service("/", ServeDir::new("/app/public"))
         .layer(
             TraceLayer::new_for_http()
                 .make_span_with(trace::DefaultMakeSpan::new().level(Level::INFO))

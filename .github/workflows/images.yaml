@@ -36,7 +36,7 @@ jobs:
         with:
           images: |
             darrenmeehan42/zola-rust
-            ghcr.io/zola-rust
+            darrenmeehan/zola-rust
 
       - name: Build and push Docker images
         id: push

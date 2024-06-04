@@ -6,3 +6,9 @@
 # Local Netlify folder
 **/.netlify
 fly.toml
+
+target/
+public/
+log/
+.devcontainer/
+.github/

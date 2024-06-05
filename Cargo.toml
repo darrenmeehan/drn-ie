@@ -16,3 +16,4 @@ tower-http = { version = "0.5.2", features = ["trace", "fs"] }
 tracing = { version = "0.1.40", features = ["attributes"] }
 tracing-appender = "0.2.3"
 tracing-subscriber = { version = "0.3.18", features = ["registry", "std"] }
+clap = { version = "4.5.4", features = ["derive"] }

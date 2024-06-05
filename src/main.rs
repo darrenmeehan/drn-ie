@@ -1,9 +1,27 @@
-use axum::Router;
+use axum::response::Response;
+use axum::{
+    Router,
+    middleware::map_response};
+use clap::Parser;
 use std::net::SocketAddr;
 use tower_http::trace;
 use tower_http::{services::ServeDir, trace::TraceLayer};
 use tracing::{event, Level};
 use tracing_appender::rolling::{RollingFileAppender, Rotation};
+
+
+async fn set_header<B>(mut response: Response<B>) -> Response<B> {
+    response.headers_mut().insert("Server", "drn-ie/1".parse().unwrap());
+    response
+}
+
+#[derive(Parser, Debug)]
+#[command(version, about, long_about = None)]
+struct Args {
+    #[arg(short, long)]
+    content_path: String
+}
+
 
 #[tokio::main]
 async fn main() {
@@ -20,8 +38,21 @@ async fn main() {
         .with_writer(stdout_non_blocking)
         .init();
 
+    let args = Args::parse();
+    event!(Level::INFO, "Content path: {}", args.content_path);
+
+    // Check if the content path exists
+    if !std::path::Path::new(&args.content_path).exists() {
+        event!(Level::ERROR, "Content path `{}` does not exist", args.content_path);
+        // Shutdown the application
+        return;
+    } else {
+        event!(Level::INFO, "Content path `{}` confirmed to exist", args.content_path);
+    }
+
     let app = Router::new()
         .nest_service("/", ServeDir::new("/app/public"))
+        .layer(map_response(set_header))
         .layer(
             TraceLayer::new_for_http()
                 .make_span_with(trace::DefaultMakeSpan::new().level(Level::INFO))

@@ -1,7 +1,5 @@
 use axum::response::Response;
-use axum::{
-    Router,
-    middleware::map_response};
+use axum::{middleware::map_response, Router};
 use clap::Parser;
 use std::net::SocketAddr;
 use tower_http::trace;
@@ -9,9 +7,10 @@ use tower_http::{services::ServeDir, trace::TraceLayer};
 use tracing::{event, Level};
 use tracing_appender::rolling::{RollingFileAppender, Rotation};
 
-
 async fn set_header<B>(mut response: Response<B>) -> Response<B> {
-    response.headers_mut().insert("Server", "drn-ie/1".parse().unwrap());
+    response
+        .headers_mut()
+        .insert("Server", "drn-ie/1".parse().unwrap());
     response
 }
 
@@ -19,9 +18,8 @@ async fn set_header<B>(mut response: Response<B>) -> Response<B> {
 #[command(version, about, long_about = None)]
 struct Args {
     #[arg(short, long)]
-    content_path: String
+    content_path: String,
 }
-
 
 #[tokio::main]
 async fn main() {
@@ -43,11 +41,19 @@ async fn main() {
 
     // Check if the content path exists
     if !std::path::Path::new(&args.content_path).exists() {
-        event!(Level::ERROR, "Content path `{}` does not exist", args.content_path);
+        event!(
+            Level::ERROR,
+            "Content path `{}` does not exist",
+            args.content_path
+        );
         // Shutdown the application
         return;
     } else {
-        event!(Level::INFO, "Content path `{}` confirmed to exist", args.content_path);
+        event!(
+            Level::INFO,
+            "Content path `{}` confirmed to exist",
+            args.content_path
+        );
     }
 
     let app = Router::new()

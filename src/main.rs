@@ -10,7 +10,7 @@ use tracing_appender::rolling::{RollingFileAppender, Rotation};
 async fn set_header<B>(mut response: Response<B>) -> Response<B> {
     response
         .headers_mut()
-        .insert("Server", "drn-ie/1".parse().unwrap());
+        .insert("x-source", "github.com/darrenmeehan/drn-ie".parse().unwrap());
     response
 }
 

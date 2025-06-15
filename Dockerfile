@@ -21,4 +21,5 @@ COPY --from=build /app/target/release/drn-ie /usr/local/bin/drn-ie
 COPY --from=build /app/public /app/public
 
 # CTRL-C doesn't work without this, but it's not a good idea to use it
-CMD ["/bin/sh", "-c", "drn-ie", "--content-path", "/app/public"]
+# CMD ["/bin/sh", "-c", "drn-ie", "--content-path", "/app/public"]
+CMD ["drn-ie", "--content-path", "/app/public"]

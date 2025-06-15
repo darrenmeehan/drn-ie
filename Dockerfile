@@ -1,7 +1,7 @@
 # syntax = docker/dockerfile:1.4
 # 👆 that there is the magic, load-bearing comment to opt into new features
 # note using Docker 23.0.6 does not require the magic comment
-FROM ubuntu:20.04
+FROM ubuntu:25.04
 
 # Install required dependencies
 RUN set -eux; \

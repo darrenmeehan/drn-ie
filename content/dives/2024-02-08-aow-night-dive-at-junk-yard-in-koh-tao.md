@@ -1,6 +1,6 @@
 ---
 template: dive.html
-visible: true
+# visible: true
 title: "AOW Night Dive at Junk Yard in Koh Tao "
 date: 2024-02-08T11:00:49.553Z
 draft: true

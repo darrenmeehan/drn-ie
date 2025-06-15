@@ -1,6 +1,6 @@
 ---
 template: blog-page.html
-visible: true
+# visible: true
 title: "Decap CMS Checkin "
 date: 2024-02-15T06:41:46.218Z
 draft: true
@@ -20,7 +20,3 @@ I'm not sure where I'll end up with what I'm building, but the current plan look
 1. Build my own Github OAuth provider for logging into DecapCMS
 2. Add other IdP to my new identity provider, while still allowing Decap access to my git repository. 
 3. Consider building out IndieAuth for authorisation, mainly for fun. Might be useful for other capabilites at some point.. This is more outside the CMS, such as private posts, commenting. 
-
-
-
-

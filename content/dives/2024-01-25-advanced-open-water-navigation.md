@@ -2,7 +2,7 @@
 template: dive.html
 title: Advanced Open Water - Navigation
 date: 2024-01-25T05:45:33.101Z
-visible: true
+# visible: true
 extra:
     site: Twins, Koh Tao, Thailand
     location: '{"type":"Point","coordinates":[99.8138283,10.1134533]}'

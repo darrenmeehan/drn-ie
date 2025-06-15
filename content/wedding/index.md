@@ -3,7 +3,7 @@ title: The Best Day Of My Life!
 date: 2023-08-26T13:00:00.572Z
 template: photo.html
 draft: false
-visible: true
+# visible: true
 extra:
   images:
     - https://res.cloudinary.com/difx30h6p/image/upload/v1708064758/Wedding/260823_Sinead_Darren_643-compressed_brztar.jpg

@@ -1,6 +1,6 @@
 ---
 template: dive.html
-visible: true
+# visible: true
 title: Open Water Training Dive 3
 date: 2024-01-23T12:45:33.101Z
 draft: false

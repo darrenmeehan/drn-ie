@@ -14,9 +14,9 @@ build_search_index = false
 
 theme = "drn"
 
-render_emoji = true
+# render_emoji = true
 
-paths_keep_dates = false
+# paths_keep_dates = false
 
 [markdown]
 # Whether to do syntax highlighting
@@ -43,5 +43,5 @@ background = "#000"
 foreground = "#FFF"
 hover = "#333"
 
-[context.deploy-preview]
-command = "zola build --base-url $DEPLOY_PRIME_URL"
+# [context.deploy-preview]
+# command = "zola build --base-url $DEPLOY_PRIME_URL"

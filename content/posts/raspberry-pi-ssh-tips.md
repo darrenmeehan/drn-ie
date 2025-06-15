@@ -2,7 +2,7 @@
 title: "Raspberry PI SSH Tips"
 date: 2020-06-14T11:18:09+01:00
 draft: true
-visible: true
+# visible: true
 ---
 
 # Raspberry PI SSH Tips
@@ -33,5 +33,3 @@ Instead of having to remember *another* password (Pro tip: Use a password manage
 FIXME Add some more information on what a keypair is.
 
 To generate these keys we'll use a tool called `openssl`.
-
-

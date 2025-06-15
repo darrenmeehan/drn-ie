@@ -16,7 +16,7 @@ RUN cargo build --release
 COPY . .
 RUN zola build
 
-FROM ubuntu:20.04 as runtime
+FROM ubuntu:25:04 as runtime
 COPY --from=build /app/target/release/drn-ie /usr/local/bin/drn-ie
 COPY --from=build /app/public /app/public
 

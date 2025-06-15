@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     container: rustlang/rust:nightly-bookworm
     steps:
+      - uses: actions/checkout@v2
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - run: flyctl deploy -a drn-ie
         env:

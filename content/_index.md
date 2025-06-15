@@ -1,4 +1,4 @@
 +++
 +++
 
-I'm a software engineer from Donegal, Ireland.
+Software engineer from Donegal, Ireland.

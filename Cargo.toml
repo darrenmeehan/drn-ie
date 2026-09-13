@@ -4,16 +4,28 @@ version = "0.1.0"
 edition = "2021"
 license = "MIT"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+# Dependency ranges are caret floors, not exact pins: "0.8.9" = ^0.8.9
+# (>=0.8.9, <0.9.0). Cargo.lock pins the exact build — build with `--locked`
+# for reproducibility. This stack uses the tokio-rs fork-ecosystem crates
+# (axum/tokio/tower/tracing/hyper).
+#
+# 2026-09 survey: widened everything to "*", resolved all to latest, fixed the
+# one breaking API change (nest_service -> fallback_service in src/main.rs),
+# and h2 landed on 0.4.19, fixing RUSTSEC-2026-0258 (audit gate is now plain
+# `cargo audit`). The floors below are that resolved set; raise them in
+# Cargo.toml, then `cargo update` + `cargo build --locked` to keep the lock in
+# sync.
 
 [dependencies]
-axum = "0.7.5"
-hyper = "1.3.1"
-console-subscriber = "0.2.0"
-tokio = { version = "1.38.0", features = ["macros", "rt-multi-thread", "tracing"] }
-tower = "0.4.13"
-tower-http = { version = "0.5.2", features = ["trace", "fs"] }
-tracing = { version = "0.1.40", features = ["attributes"] }
-tracing-appender = "0.2.3"
-tracing-subscriber = { version = "0.3.18", features = ["registry", "std"] }
-clap = { version = "4.5.4", features = ["derive"] }
+axum = "0.8.9"
+hyper = "1.11.1"
+console-subscriber = "0.5.0"
+tokio = { version = "1.53.1", features = ["macros", "rt-multi-thread", "tracing"] }
+tower = "0.5.3"
+tower-http = { version = "0.7.1", features = ["trace", "fs"] }
+tracing = { version = "0.1.44", features = ["attributes"] }
+tracing-appender = "0.2.5"
+# Floor 0.3.23: 0.3.20 first escaped ANSI escape sequences in logs (security
+# fix, CVE-TBD via Dependabot PR #10); 0.3.23 is the current resolved set.
+tracing-subscriber = { version = "0.3.23", features = ["registry", "std"] }
+clap = { version = "4.6.6", features = ["derive"] }

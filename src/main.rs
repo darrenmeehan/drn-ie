@@ -58,7 +58,7 @@ async fn main() {
     }
 
     let app = Router::new()
-        .nest_service("/", ServeDir::new(&args.content_path))
+        .fallback_service(ServeDir::new(&args.content_path))
         .layer(map_response(set_header))
         .layer(
             TraceLayer::new_for_http()

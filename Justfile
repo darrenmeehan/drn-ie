@@ -18,4 +18,4 @@ new-post title:
 # Audit dependencies against the RUSTSEC advisory DB (h2 RUSTSEC-2026-0258 is
 # a known-ignored upstream-blocked low-severity advisory, see audit.yaml)
 audit:
-    cargo audit --ignore RUSTSEC-2026-0258
+    cargo audit

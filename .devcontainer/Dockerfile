@@ -1,18 +1,17 @@
 FROM mcr.microsoft.com/devcontainers/rust:1-bookworm
-# Install the wget package
-RUN apt-get update && apt-get install -y wget
-
-# Install zola
-RUN wget https://github.com/barnumbirr/zola-debian/releases/download/v0.18.0-2/zola_0.18.0-2_amd64_bookworm.deb
-RUN dpkg -i zola_0.18.0-2_amd64_bookworm.deb
-
-# All of Node.js just for Netlify CLI
-RUN apt install -y ca-certificates curl gnupg
-RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
-ARG NODE_MAJOR=20
-RUN echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list
-RUN apt update && apt-get install nodejs -y
-RUN npm install netlify-cli -g
 
 # Install just command runner
 RUN cargo install just
+
+# Install pinned Zola (official release tarball). Delete this override once
+# NixOS/nixpkgs#562808 (zola 0.23.6) merges and the nix shell provides it.
+ENV ZOLA_VERSION=0.23.6
+ENV ZOLA_SHA256=8f5132b3522412d04e395e0b25f6d68613ad272a873e54a2b3ebf664873024a4
+RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates curl \
+    && rm -rf /var/lib/apt/lists/* \
+    && curl -fsSL -o /tmp/zola.tar.gz \
+      "https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz" \
+    && printf '%s  %s\n' "${ZOLA_SHA256}" /tmp/zola.tar.gz | sha256sum -c - \
+    && tar -xzf /tmp/zola.tar.gz -C /tmp \
+    && install -m755 /tmp/zola /usr/local/bin/zola \
+    && rm /tmp/zola.tar.gz

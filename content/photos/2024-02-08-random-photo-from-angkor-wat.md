@@ -1,6 +1,5 @@
 ---
 template: photo.html
-# visible: true
 title: Random photo from Angkor Wat
 date: 2024-02-08T08:41:44.572Z
 draft: false

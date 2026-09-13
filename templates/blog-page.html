@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-<title>{% block title %}{{ page.title }} - {{ config.title }}{% endblock title %}</title>
+{% block title %}{{ page.title }} - {{ config.title }}{% endblock title %}
 
 {% block content %}
 <div class="post">
@@ -24,4 +24,3 @@
 
 {% endblock content %}
 
-{% include "footer.html" %}

@@ -8,9 +8,10 @@ use tracing::{event, Level};
 use tracing_appender::rolling::{RollingFileAppender, Rotation};
 
 async fn set_header<B>(mut response: Response<B>) -> Response<B> {
-    response
-        .headers_mut()
-        .insert("x-source", "github.com/darrenmeehan/drn-ie".parse().unwrap());
+    response.headers_mut().insert(
+        "x-source",
+        "github.com/darrenmeehan/drn-ie".parse().unwrap(),
+    );
     response
 }
 
@@ -57,7 +58,7 @@ async fn main() {
     }
 
     let app = Router::new()
-        .nest_service("/", ServeDir::new("/app/public"))
+        .nest_service("/", ServeDir::new(&args.content_path))
         .layer(map_response(set_header))
         .layer(
             TraceLayer::new_for_http()

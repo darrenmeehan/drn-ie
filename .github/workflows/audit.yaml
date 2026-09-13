@@ -1,0 +1,21 @@
+name: Dependency audit
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install cargo-audit
+        run: cargo install cargo-audit
+      - name: Audit dependencies (RUSTSEC advisory DB)
+        # RUSTSEC-2026-0258 is ignored deliberately: h2 (HTTP/2 client codec)
+        # is pinned at ^0.3 by the axum/hyper fork crates, and the fix needs
+        # h2 >= 0.4.16, which cannot resolve until those crates release an
+        # update. Low severity; this server is HTTP/1.1-only. Remove the
+        # ignore when `cargo update h2` can move to >= 0.4.16. The gate
+        # FAILS on any other advisory.
+        run: cargo audit --ignore RUSTSEC-2026-0258

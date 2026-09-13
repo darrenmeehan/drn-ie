@@ -19,9 +19,7 @@ theme = "drn"
 # paths_keep_dates = false
 
 [markdown]
-# Whether to do syntax highlighting
-# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
-highlight_code = false
+# Syntax highlighting disabled: absence of a [markdown.highlighting] table replaces the old `highlight_code = false`
 
 [extra]
 greeting = "Hello!"
@@ -42,6 +40,3 @@ name = "Darren Meehan"
 background = "#000"
 foreground = "#FFF"
 hover = "#333"
-
-# [context.deploy-preview]
-# command = "zola build --base-url $DEPLOY_PRIME_URL"

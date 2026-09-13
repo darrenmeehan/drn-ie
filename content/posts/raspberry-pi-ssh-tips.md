@@ -2,7 +2,6 @@
 title: "Raspberry PI SSH Tips"
 date: 2020-06-14T11:18:09+01:00
 draft: true
-# visible: true
 ---
 
 # Raspberry PI SSH Tips
@@ -21,8 +20,6 @@ The best way to secure anything in IT is to ensure it doesnt exist in the first 
 
 Raspberry PIs do not come with SSH enabled by default. This is a good thing!
 Enabling SSH opens up your Raspberry PI to a lot of attacks. With the first section of this post I'll cover some tips for ensuring your precious pi is kept safe.
-
-
 
 # Security
 

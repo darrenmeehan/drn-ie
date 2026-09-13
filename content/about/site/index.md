@@ -3,9 +3,11 @@ title = "About this site"
 template = "page.html"
 +++
 
-Built using Zola, DecapCMS. Hosted on Netlify
+Built with [Zola](https://getzola.org) and served by a small Rust server ([src/main.rs](https://github.com/darrenmeehan/drn-ie)), hosted on **Fly.io**.
 
-Development environment is currently GitHub Codespace.
+Publishing is plain markdown + git. `just new-post "Title"` scaffolds a draft, `just serve` previews it locally, and pushing to `main` deploys automatically via GitHub Actions (`flyctl deploy`). No CMS — the workflow is documented in the [README](https://github.com/darrenmeehan/drn-ie).
+
+Development environment is [Nix](https://nixos.org/) (`nix-shell`) or the devcontainer (`.devcontainer/`), both with the same toolchain.
 
 ## Credit
 

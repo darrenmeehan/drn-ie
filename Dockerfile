@@ -1,25 +1,37 @@
 # syntax = docker/dockerfile:1.4
 
-# 👆 that there is the magic, load-bearing comment to opt into new features
-# note using Docker 23.0.6 does not require the magic comment
-FROM darrenmeehan42/zola-rust:images as build
+# --- Stage 1: build the Rust server binary (src/main.rs) -----------------
+FROM rust:1.96-bookworm AS rust-build
 
 WORKDIR /app
-
-# Build binary
+COPY Cargo.toml Cargo.lock /app/
 COPY src /app/src
-COPY Cargo.toml /app/Cargo.toml
-COPY Cargo.lock /app/Cargo.lock
 RUN cargo build --release
 
-# Build content
+# --- Stage 2: fetch pinned Zola and build the site content --------------
+FROM debian:bookworm-slim AS site-build
+
+ENV ZOLA_VERSION=0.23.6
+ENV ZOLA_SHA256=8f5132b3522412d04e395e0b25f6d68613ad272a873e54a2b3ebf664873024a4
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends ca-certificates curl \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
 COPY . .
-RUN zola build
 
-FROM ubuntu:25.04 as runtime
-COPY --from=build /app/target/release/drn-ie /usr/local/bin/drn-ie
-COPY --from=build /app/public /app/public
+RUN curl -fsSL -o /tmp/zola.tar.gz \
+      "https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz" \
+    && printf '%s  %s\n' "${ZOLA_SHA256}" /tmp/zola.tar.gz | sha256sum -c - \
+    && tar -xzf /tmp/zola.tar.gz -C /tmp \
+    && install -m755 /tmp/zola /usr/local/bin/zola \
+    && zola --version \
+    && zola build
 
-# CTRL-C doesn't work without this, but it's not a good idea to use it
-# CMD ["/bin/sh", "-c", "drn-ie", "--content-path", "/app/public"]
+# --- Runtime: serve the built site with the Rust server -----------------
+FROM ubuntu:25.04 AS runtime
+COPY --from=rust-build /app/target/release/drn-ie /usr/local/bin/drn-ie
+COPY --from=site-build /app/public /app/public
+
 CMD ["drn-ie", "--content-path", "/app/public"]

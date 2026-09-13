@@ -2,7 +2,6 @@
 title: "Guide to Python Environment Setup"
 date: 2020-06-14T11:18:09+01:00
 draft: true
-visible: true
 ---
 
 
@@ -15,4 +14,3 @@ pip
 pipenv
 
 pipx
-
